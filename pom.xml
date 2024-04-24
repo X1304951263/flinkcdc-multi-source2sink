@@ -12,12 +12,6 @@
         <module>flinkcdc-mysql2doris</module>
         <module>common-module</module>
         <module>flinkcdc-mysql2oracle</module>
-        <module>flinkcdc-oracle2doris</module>
-        <module>flinkcdc-sqlserver2oracle</module>
-        <module>alert-test</module>
-        <module>flinkcdc-sqlserver2doris</module>
-        <module>flinkcdc-sqlserver2mysql</module>
-        <module>mysql-oracle</module>
     </modules>
 
     <properties>
