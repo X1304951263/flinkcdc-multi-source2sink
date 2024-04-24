@@ -1,3 +1,4 @@
+该项目是使用datastream来实现实时同步，而不是flinksql，由于flinksql需要写大量sql且不够通用化，所以采用datastream来高度自定义统一的任务模版，只需要改变参数即可实现任何mysql-oracle的同步功能<br /> 
 flinkcdc多表实时同步任务代码，打包成jar包后，可以作为flink任务运行，部署在flink单机、集群或者flink-on-yarn <br /> 
 前提条件：mysql开启binlog  <br/> 
 功能简介：任务可以实现数据源与目标源的多表之间的表名的映射以及字段的映射来同步数据，其中source不会锁表，且代码保证数据的一致性、顺序性、断点恢复功能，自动清表功能等 <br/> 
