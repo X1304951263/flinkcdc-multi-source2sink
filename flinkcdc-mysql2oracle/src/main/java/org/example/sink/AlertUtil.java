@@ -10,7 +10,7 @@ import java.util.Map;
 public class AlertUtil implements  java.io.Serializable{
     public String DEV_BASE_URL = "http://127.0.0.1:8081"; // Replace with your actual API base URL
 
-    public String PROD_BASE_URL = "http://10.129.80.19:8080";
+    public String PROD_BASE_URL = "http://xxxxxxx:8080";
 
 
     public  void sendAlert(String message)  {
