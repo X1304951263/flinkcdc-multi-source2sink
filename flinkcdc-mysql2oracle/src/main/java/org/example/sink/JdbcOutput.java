@@ -60,7 +60,7 @@ public class JdbcOutput extends RichOutputFormat<List<JSONObject>> implements Ou
     public Map<String, Boolean> incrementalPhaseFlag = new HashMap<>();
 
 
-    public static final String FEISHU_ALERT_URL = "https://open.feishu.cn/open-apis/bot/v2/hook/30b705c7-1d88-4280-842f-26c9402c9fcc";
+
 
     public Map<String, Map<String, String>> tableFieldsWithTypeMap = new HashMap<>();
 
