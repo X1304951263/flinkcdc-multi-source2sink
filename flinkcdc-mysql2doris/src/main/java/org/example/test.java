@@ -12,13 +12,6 @@ import java.sql.Statement;
 public class test {
 
     public static void main(String[] args) {
-        String url = "jdbc:mysql://10.129.36.6:9030/flinkcdc";
-        try {
-            Connection connection = DriverManager.getConnection(url, "etl", "etl");
-            Statement statement = connection.createStatement();
-            statement.execute("truncate table flinkcdc.`user2`");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        
     }
 }
