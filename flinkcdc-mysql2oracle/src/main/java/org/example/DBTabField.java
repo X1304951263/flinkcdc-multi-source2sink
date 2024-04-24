@@ -135,37 +135,4 @@ public class DBTabField {
     }
 
 
-    /*
-    * 创建upsert语句
-    * */
-
-
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//        System.out.println("'1".replace("'", "\""));
-//        System.exit(1);
-//
-//        Class.forName("oracle.jdbc.OracleDriver");
-//        Connection connection = DriverManager
-//                .getConnection("jdbc:oracle:thin:@10.129.37.85:1521:rodsdb"
-//                ,"dp_sync","Demo_1234");
-//        connection.setAutoCommit(false);
-//        Statement statement = connection.createStatement();
-//        statement.execute("UPDATE ADS.\"user\" SET \"NUM\" = 1.1000000000," +
-//                "\"ID\" = '1' WHERE \"ID\" = '1'");
-//        connection.commit();
-//        System.exit(1);
-
-
-
-//        String server = "127.0.0.1";
-//        String database = "flinkcdc";
-//        String user = "root";
-//        String password = "xw123456";
-//        String[] tables = {"user"};
-        String server = "10.129.37.115";
-        String database = "xuke";
-        String user = "dp_sync";
-        String password = "DP#Sync_cifi1234";
-        String[] tables = {"b_broker_task"};
-    }
 }
