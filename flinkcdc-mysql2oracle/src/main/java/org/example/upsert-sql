@@ -13,7 +13,7 @@ flinkcdc
 --source_table
 mm_business_unit
 --sink_host
-10.129.37.85
+xxxxxxxx
 --sink_port
 1521
 --sink_username
