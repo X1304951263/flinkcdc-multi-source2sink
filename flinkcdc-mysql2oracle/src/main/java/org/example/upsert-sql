@@ -1,0 +1,167 @@
+--job_name
+xuke-testaaaa
+--source_host
+127.0.0.1
+--source_port
+3306
+--source_username
+root
+--source_password
+xw123456
+--source_database
+flinkcdc
+--source_table
+mm_business_unit
+--sink_host
+10.129.37.85
+--sink_port
+1521
+--sink_username
+dp_sync
+--sink_password
+Demo_1234
+--sink_database
+rodsdb
+--sink_schema
+ODS
+--intervals
+3000
+--batch_size
+2
+
+
+-- ODS.B_DRAW_CUSTOMER_CHILD_INS definition
+
+CREATE TABLE "ODS"."B_DRAW_CUSTOMER_CHILD_INS"
+   (	"ID" VARCHAR2(50) NOT NULL ENABLE,
+	"PROJECT_ID" VARCHAR2(60) NOT NULL ENABLE,
+	"DRAW_PROJECT_TEMPLATE_ID" VARCHAR2(60) DEFAULT NULL,
+	"CUSTOMER_INS_MAIN_ID" VARCHAR2(60) DEFAULT NULL,
+	"TYPE" NUMBER(11,0) DEFAULT NULL,
+	"AREA_PROVINCIAL" VARCHAR2(60) DEFAULT NULL,
+	"AREA_CITY" VARCHAR2(60) DEFAULT NULL,
+	"AREA_AREA" VARCHAR2(110) DEFAULT NULL,
+	"AREA_STREET" VARCHAR2(110) DEFAULT NULL,
+	"AREA_ADDRESS" VARCHAR2(1024) DEFAULT NULL,
+	"CONTENT_CODE" VARCHAR2(300) DEFAULT NULL,
+	"CONTENT" VARCHAR2(1024) DEFAULT NULL,
+	"IS_DEL" NUMBER(11,0) DEFAULT 0,
+	"MIN_NUMBER" NUMBER(11,0) DEFAULT NULL,
+	"MAX_NUMBER" NUMBER(11,0) DEFAULT NULL,
+	"DATE" TIMESTAMP,
+	"CREATE_TIME" TIMESTAMP,
+	"CREATOR" VARCHAR2(50) DEFAULT NULL,
+	"CREATOR_NAME" VARCHAR2(50) DEFAULT NULL,
+	"EDITOR" VARCHAR2(50) DEFAULT NULL,
+	"EDITOR_NAME" VARCHAR2(50) DEFAULT NULL,
+	"EDIT_TIME" TIMESTAMP
+   ) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ODS_TS" ;
+
+
+
+
+MERGE INTO ODS."B_DRAW_CUSTOMER_CHILD_INS" target
+USING (
+    SELECT
+        q'["633177949748908094"]' AS "ID",
+        q'["0CD9CA12-D7DF-EB11-80C2-005056A21B76"]' AS "PROJECT_ID",
+        q'["618771742838272043"]' AS "DRAW_PROJECT_TEMPLATE_ID",
+        q'["633177949748908032"]' AS "CUSTOMER_INS_MAIN_ID",
+        3 AS "TYPE",
+        null AS "AREA_PROVINCIAL",
+        null AS "AREA_CITY",
+        null AS "AREA_AREA",
+        null AS "AREA_STREET",
+        null AS "AREA_ADDRESS",
+        null AS "CONTENT_CODE",
+        '两人到访，住巴南，"娃儿在广州开超市，老公在江津做车床工作，预算150-200万，面积60-80，首付可以付80万，给娃儿买的看了哪里都觉得好，就是必须要回去和老公商量，喊他打电话也不打，说老公接不到电话，明天给答复[微笑]' AS "CONTENT",
+        0 AS "IS_DEL",
+        null AS "MIN_NUMBER",
+        null AS "MAX_NUMBER",
+        null AS "DATE",
+        1640101797000 AS "CREATE_TIME",
+        q'["000097078"]' AS "CREATOR",
+        q'["weiyt04"]' AS "CREATOR_NAME",
+        q'[""]' AS "EDITOR",
+        q'[""]' AS "EDITOR_NAME",
+        1640101797000 AS "EDIT_TIME"
+    FROM DUAL
+) source
+ON (target."ID" = source."ID")
+WHEN MATCHED THEN
+    UPDATE SET
+        target."PROJECT_ID" = source."PROJECT_ID",
+        target."DRAW_PROJECT_TEMPLATE_ID" = source."DRAW_PROJECT_TEMPLATE_ID",
+        target."CUSTOMER_INS_MAIN_ID" = source."CUSTOMER_INS_MAIN_ID",
+        target."TYPE" = source."TYPE",
+        target."AREA_PROVINCIAL" = source."AREA_PROVINCIAL",
+        target."AREA_CITY" = source."AREA_CITY",
+        target."AREA_AREA" = source."AREA_AREA",
+        target."AREA_STREET" = source."AREA_STREET",
+        target."AREA_ADDRESS" = source."AREA_ADDRESS",
+        target."CONTENT_CODE" = source."CONTENT_CODE",
+        target."CONTENT" = source."CONTENT",
+        target."IS_DEL" = source."IS_DEL",
+        target."MIN_NUMBER" = source."MIN_NUMBER",
+        target."MAX_NUMBER" = source."MAX_NUMBER",
+        target."DATE" = source."DATE",
+        target."CREATE_TIME" = source."CREATE_TIME",
+        target."CREATOR" = source."CREATOR",
+        target."CREATOR_NAME" = source."CREATOR_NAME",
+        target."EDITOR" = source."EDITOR",
+        target."EDITOR_NAME" = source."EDITOR_NAME",
+        target."EDIT_TIME" = source."EDIT_TIME"
+WHEN NOT MATCHED THEN
+    INSERT (
+        target."ID",
+        target."PROJECT_ID",
+        target."DRAW_PROJECT_TEMPLATE_ID",
+        target."CUSTOMER_INS_MAIN_ID",
+        target."TYPE",
+        target."AREA_PROVINCIAL",
+        target."AREA_CITY",
+        target."AREA_AREA",
+        target."AREA_STREET",
+        target."AREA_ADDRESS",
+        target."CONTENT_CODE",
+        target."CONTENT",
+        target."IS_DEL",
+        target."MIN_NUMBER",
+        target."MAX_NUMBER",
+        target."DATE",
+        target."CREATE_TIME",
+        target."CREATOR",
+        target."CREATOR_NAME",
+        target."EDITOR",
+        target."EDITOR_NAME",
+        target."EDIT_TIME"
+    ) VALUES (
+        source."ID",
+        source."PROJECT_ID",
+        source."DRAW_PROJECT_TEMPLATE_ID",
+        source."CUSTOMER_INS_MAIN_ID",
+        source."TYPE",
+        source."AREA_PROVINCIAL",
+        source."AREA_CITY",
+        source."AREA_AREA",
+        source."AREA_STREET",
+        source."AREA_ADDRESS",
+        source."CONTENT_CODE",
+        source."CONTENT",
+        source."IS_DEL",
+        source."MIN_NUMBER",
+        source."MAX_NUMBER",
+        source."DATE",
+        source."CREATE_TIME",
+        source."CREATOR",
+        source."CREATOR_NAME",
+        source."EDITOR",
+        source."EDITOR_NAME",
+        source."EDIT_TIME"
+    );
